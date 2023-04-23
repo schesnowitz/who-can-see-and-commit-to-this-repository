@@ -1,0 +1,37 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg navbar-dark navbar-theme fixed-top p-0" data-navbar-on-scroll="data-navbar-on-scroll">
+    <div class="container">
+        {% if text.page_text_16 != None %}
+        
+        <a class="navbar-brand fw-normal ls-2" href="{% url 'project_list' %}">{{ text.page_text_16 }}</a>
+        {% else %}
+        <a class="navbar-brand fw-normal ls-2" href="{% url 'project_list' %}">Update page text 16</a>
+        {% endif %}
+      <button class="navbar-toggler p-0" type="button" data-bs-toggle="collapse" data-bs-target="#primaryNavbarCollapse" aria-controls="primaryNavbarCollapse" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+      <div class="collapse navbar-collapse" id="primaryNavbarCollapse">
+        <ul class="navbar-nav ms-auto">
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" href="{% url 'contact' %}" data-bs-toggle="dropdown-on-hover" aria-haspopup="true" aria-expanded="false">Contact</a>
+                <div class="dropdown-menu dropdown-menu-end py-0 overflow-hidden" aria-labelledby="navbarDropdownMenuLink1"></div>
+            </li>
+            {% if user.is_authenticated %}
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" href="{% url 'edit' %}" data-bs-toggle="dropdown-on-hover" aria-haspopup="true" aria-expanded="false">Edit Profile</a>
+                <div class="dropdown-menu dropdown-menu-end py-0 overflow-hidden" aria-labelledby="navbarDropdownMenuLink1"></div>
+            </li>
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" href="{% url 'account_logout' %}" data-bs-toggle="dropdown-on-hover" aria-haspopup="true" aria-expanded="false">Log Out</a>
+                <div class="dropdown-menu dropdown-menu-end py-0 overflow-hidden" aria-labelledby="navbarDropdownMenuLink1"></div>
+            </li>
+            {% else %}
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" href="{% url 'account_login' %}" data-bs-toggle="dropdown-on-hover" aria-haspopup="true" aria-expanded="false">Log In</a>
+                <div class="dropdown-menu dropdown-menu-end py-0 overflow-hidden" aria-labelledby="navbarDropdownMenuLink1"></div>
+            </li>
+            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" href="{% url 'account_signup' %}" data-bs-toggle="dropdown-on-hover" aria-haspopup="true" aria-expanded="false">Sign Up</a>
+                <div class="dropdown-menu dropdown-menu-end py-0 overflow-hidden" aria-labelledby="navbarDropdownMenuLink1"></div>
+            </li>
+
+            {% endif %}
+
+        </ul>
+      </div>
+    </div>
+  </nav>

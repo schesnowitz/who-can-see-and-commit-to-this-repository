@@ -1,0 +1,47 @@
+{% extends "base_main.html" %}
+{% load static %}
+{% block title %}projects{% endblock title %}
+{% block content %}  
+{% include 'about.html' %}  
+{% include 'get_it_now.html' %}
+<section class="text-center pb-3" id="portfolio">
+  <div class="container-fluid">
+    <div class="row justify-content-center" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+      <div class="col-12 mb-4">
+        <div class="overflow-hidden">
+          <h2 class="fs-md-5 mb-2" data-zanim-xs='{"duration":1.5,"delay":0}'>
+            {{ text.page_text_11}}
+          </h2>
+        </div>
+        <div class="overflow-hidden">
+          <p class="fs--1 text-uppercase text-black ls-1 mb-0" data-zanim-xs='{"duration":1.5,"delay":0.1}'>
+            {{ text.page_text_12}}
+        </p>
+        </div>
+        <div class="overflow-hidden">
+          <hr class="hr-short bg-black opacity-100" data-zanim-xs='{"duration":1.5,"delay":0.2}' />
+        </div>
+      </div>
+    </div>
+    <div class="row g-3 mt-3" data-rp-isotope='{"layoutMode":"packery"}'>
+      {% for project in project_list %}
+      <div class="col-sm-6 col-lg-4 px-2 isotope-item design" data-zanim-xs='{"delay":0}'>
+        <div class="hoverdir-item my-0" data-zanim-xs='{"duration":1.5,"animation":"zoom-in","delay":0}'>
+          <div class="hoverdir-item-content">
+            <a class="d-block" href="{% url 'projects:project_detail' project.id %}">
+              <img class="img-fluid rounded" src="{{ project.image.url}}" alt="" />
+              <div class="hoverdir-text">
+                <h3 class="text-white lh-1 fs-2">{{ project.title}}</h3>
+                <p class="ls-1 mb-0 text-700">{{ project.sub_title}}<br>{{ project.sub_title_1}}</p>
+              </div>
+            </a>
+          </div>
+        </div>
+      </div>
+      {% endfor %} 
+    </div>
+  </div>
+  <!-- end of .container-->
+</section>
+{% include 'social.html' %}
+{% endblock content %}

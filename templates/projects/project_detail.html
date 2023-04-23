@@ -1,0 +1,57 @@
+{% extends "base_main.html" %}
+{% load static %}
+{% block content %}
+<div class="container mt-3">
+  <h2>{{ object.title }}</h2>
+  <br>
+  <!-- Nav tabs -->
+  <ul class="nav nav-tabs" role="tablist">
+    <li class="nav-item">
+      <a class="nav-link active" data-bs-toggle="tab" href="#home">{{ object.tab_title|safe }}</a>
+    </li>
+    {% for detail in project.detail_set.all %}
+    <li class="nav-item">
+      <a class="nav-link" data-bs-toggle="tab" href="#menu{{ detail.id }}">{{ detail.code_title }}</a>
+    </li>
+    {% endfor %}
+  </ul>
+  <!-- Tab panes -->
+  <div class="tab-content">
+    <div id="home" class="container tab-pane active">
+      <br>
+      <h3>{{ object.tab_title|safe }}</h3>
+      <p>{{ object.description|safe }}</p>
+      <p>
+        {% if object.github %}
+        <a href="{{ object.github }}" target="_blank">
+        <span class='fab fa-github mx-2'></span>
+        </a>
+        {% endif %}
+        {% if object.youtube %}
+        <a href="{{ object.youtube }}" target="_blank">
+        <span class='fab fa-youtube mx-2'></span>
+        </a>
+        {% endif %}
+        {% if object.link_1 %}
+        <a class="px-2 pb-4" href="{{ object.link_1 }}">
+        <span><img class="pb-0" src="{% static 'assets/img/linker.svg' %}" width="12" alt=""></span>
+        {{ object.link_1 }}
+        </a>
+        {% endif %}
+        {% if object.udemy %}
+        <a class="px-2 pb-4" href="{{ object.udemy }}">
+        <span><img class="pb-0" src="{% static 'assets/img/udemy.svg' %}" width="12" alt=""></span>
+        </a>
+        {% endif %}
+      </p>
+    </div>
+    {% for detail in project.detail_set.all %}
+    <div id="menu{{ detail.id }}" class="container tab-pane fade">
+      <br>
+      <h3>{{ detail.code_title }}</h3>
+      <p>{{ detail.code|safe }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock content %}

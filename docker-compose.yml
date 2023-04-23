@@ -1,0 +1,46 @@
+# docker-compose build
+# docker-compose run --rm application django-admin startproject core .
+# docker-compose run chesnowitz-application python manage.py migrate
+# docker-compose exec web python manage.py migrate
+# docker system prune 
+# docker-compose config
+# docker-compose exec web python manage.py collectstatic
+services:
+  # db:
+  #   image: postgres:latest
+  #   volumes:
+  #     - ./data/db:/var/lib/postgresql/data
+  #   environment:
+  #     POSTGRES_DB: ${POSTGRES_DB}
+  #     POSTGRES_USER: ${POSTGRES_USER}
+  #     POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+  #   ports:
+  #     - "5432:5432"
+  #   restart: always
+  web:
+    build: .
+    command: python manage.py runserver 0.0.0.0:8000
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    environment:
+      # POSTGRES_NAME: ${POSTGRES_NAME}
+      # POSTGRES_USER: ${POSTGRES_USER}
+      # POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+      SECRET_KEY: ${SECRET_KEY}
+      SENDGRID_API_KEY: ${SENDGRID_API_KEY}
+      DEFAULT_FROM_EMAIL: ${DEFAULT_FROM_EMAIL}
+      DEBUG: ${DEBUG}
+  #   depends_on:
+  #     - db
+
+  # pgadmin:
+  #   container_name: pgadmin
+  #   image: dpage/pgadmin4:latest
+  #   environment:
+  #     PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
+  #     PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
+  #   ports:
+  #     - "5050:80"
+  #   restart: always

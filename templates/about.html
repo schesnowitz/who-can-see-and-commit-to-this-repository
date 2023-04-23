@@ -1,0 +1,77 @@
+{% load static %}
+<section>
+  <div class="container">
+    <div class="row">
+      <div class="col mb-4 text-center" data-zanim-timeline="{}">
+        {% if text.page_text_1 != None %}
+        <div class="overflow-hidden">
+          <h2 class="fs-md-5" data-zanim-xs="{&quot;duration&quot;:1.5,&quot;delay&quot;:0}" style="transform: translate(0px, 0px); opacity: 1;">{{ text.page_text_1 }}</h2>
+        </div>
+        {% endif %}
+        {% if text.page_text_2 != None %}
+        <div class="overflow-hidden">
+          <p class="fs--1 text-uppercase text-black ls-1 mb-0" data-zanim-xs="{&quot;duration&quot;:1.5,&quot;delay&quot;:0.1}" style="transform: translate(0px, 0px); opacity: 1;">
+            {{ text.page_text_2 }}
+          </p>
+        </div>
+        {% endif %}
+        <div class="overflow-hidden">
+          <hr class="hr-short bg-black" data-zanim-xs="{&quot;duration&quot;:1.5,&quot;delay&quot;:0.2}" style="transform: translate(0px, 0px); opacity: 1;">
+        </div>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-9 px-5">
+        <div class="d-flex process-item border-dashed-start border-600 pb-5" data-zanim-timeline="{}">
+          {% if text.page_text_3 != None %}
+          <div class="process-icon-circle"><img class="process-icon" src="{% static 'assets/img/line-icons/medical-result.svg' %}" alt="">
+          </div>
+          <div class="flex-1 ms-4 ms-sm-5">
+            <h5 class="ls-2"><span class="bg-white pe-3">{{ text.page_text_3 }}</span></h5>
+            <p class="mb-0 pe-lg-5" data-zanim-xs="{&quot;from&quot;:{&quot;opacity&quot;:0},&quot;to&quot;:{&quot;opacity&quot;:1},&quot;duration&quot;:1,&quot;delay&quot;:0.2}" style="opacity: 1;">
+              {{ text.page_text_4 }}
+            </p>
+          </div>
+          {% endif %}
+        </div>
+        <div class="d-flex process-item border-dashed-start border-600 border-md-start-0 border-md-dashed-end pb-5" data-zanim-timeline="{}">
+          {% if text.page_text_5 != None %}
+          <div class="flex-1 position-relative ms-4 ms-sm-5 ms-md-0 me-md-5">
+            <h5 class="text-md-end"><span class="bg-white ps-md-3">{{ text.page_text_5 }}</span><span class="process-devider border-end-0 start-0"></span></h5>
+            <p class="mb-0 text-md-end ps-lg-6" data-zanim-xs="{&quot;from&quot;:{&quot;opacity&quot;:0},&quot;to&quot;:{&quot;opacity&quot;:1},&quot;duration&quot;:1,&quot;delay&quot;:0.3}" style="opacity: 1;"> 
+              {{ text.page_text_6 }}
+            </p>
+          </div>
+          <div class="process-icon-circle"><img class="process-icon" src="{% static 'assets/img/line-icons/web-programming.svg' %}/" alt="">
+          </div>
+          {% endif %}
+        </div>
+        <div class="d-flex process-item border-dashed-start border-600 pb-5" data-zanim-timeline="{}">
+          {% if text.page_text_7 != None %}
+          <div class="process-icon-circle"><img class="process-icon" src="{% static 'assets/img/line-icons/technical-support.svg' %}" alt="">
+          </div>
+          <div class="flex-1 position-relative ms-4 ms-sm-5">
+            <span class="process-devider border-start-0 end-0"></span>
+            <h5 class="ls-2"><span class="bg-white pe-3">{{ text.page_text_7 }}</span></h5>
+            <p class="mb-0 pe-lg-5" data-zanim-xs="{&quot;from&quot;:{&quot;opacity&quot;:0},&quot;to&quot;:{&quot;opacity&quot;:1},&quot;duration&quot;:1,&quot;delay&quot;:0.2}" style="opacity: 1;">
+              {{ text.page_text_8 }}    
+            </p>
+          </div>
+          {% endif %}
+        </div>
+        <div class="d-flex process-item" data-zanim-timeline="{}">
+          {% if text.page_text_9 != None %}
+          <div class="flex-1 position-relative ms-4 ms-sm-5 ms-md-0 me-md-5">
+            <h5 class="text-md-end"><span class="bg-white ps-md-3">{{ text.page_text_9 }}</span><span class="process-devider border-end-0 start-0"></span></h5>
+            <p class="mb-0 text-md-end ps-lg-5" data-zanim-xs="{&quot;from&quot;:{&quot;opacity&quot;:0},&quot;to&quot;:{&quot;opacity&quot;:1},&quot;duration&quot;:1,&quot;delay&quot;:0.3}" style="opacity: 1;">
+              {{ text.page_text_10 }}
+            </p>
+          </div>
+          <div class="process-icon-circle"><img class="process-icon" src="{% static 'assets/img/line-icons/server.svg' %}" alt=""></div>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end of .container-->
+</section>

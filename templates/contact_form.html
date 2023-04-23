@@ -1,0 +1,46 @@
+
+{% load static %}
+<section class="py-6" data-zanim-timeline="{}" data-zanim-trigger="scroll">
+  <div class="bg-holder overlay" style="background-image:url(../assets/img/backgrounds/newsletter-bg.jpg);background-position: 63% 26%;">
+  </div>
+  <!--/.bg-holder-->
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-md-6 col-lg-4 text-md-end mb-2 mb-md-0">
+        <div class="row g-0 align-items-center justify-content-md-end border-md-end">
+          <div class="col-auto ps-2 ps-md-0 pe-2 text-lg-end order-1 order-md-0">
+            <h3 class="text-white d-inline-block fs-4 mb-0 lh-1 mt-1" data-zanim-xs='{"from":{"opacity":1,"x":-30},"to":{"opacity":1,"x":0},"duration":1.5,"delay":0.2}'>
+              Get in touch!
+            </h3>
+            <p class="mb-0 text-white" data-zanim-xs='{"from":{"opacity":1,"x":-30},"to":{"opacity":1,"x":0},"duration":1.5,"delay":0.3}'></p>
+          </div>
+          <div class="col-auto ps-lg-1 pe-md-4 pe-lg-3 pe-xl-4 order-0 order-md-1" data-zanim-xs='{"from":{"opacity":1,"x":-30},"to":{"opacity":1,"x":0},"duration":1.5,"delay":0.1}'><img class="opacity-75" src="{% static 'assets/img/line-icons/mail-4.svg' %}" width="65" style="margin-top: 0px;" alt="" /></div>
+        </div>
+      </div>
+      <div class="col-md-6 col-lg-8 col-xl-6 ps-lg-0 px-xl-3">
+        <form method="post" data-zanim-xs='{"from":{"opacity":1,"x":30},"to":{"opacity":1,"x":0},"duration":1.5,"delay":0.1}'>
+        <form method="post">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="exampleInput">Email address</label>
+            {{ form.contact_em }}
+          </div>
+          <br />
+          <div class="form-group">
+            <label for="message">Subject</label>
+            {{ form.subject }}    
+            <br />  
+          </div>
+          <div class="form-group">
+            <label for="message">Message</label>
+            {{ form.message }}      
+          </div>
+          <div class="form-actions">
+            <button type="submit" class="btn btn-info">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  <!-- end of .container-->
+</section>
