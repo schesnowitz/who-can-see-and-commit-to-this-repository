@@ -18,8 +18,8 @@ print(DEBUG)
 SECRET_KEY = env('SECRET_KEY')
 # SECRET_KEY = 'asdfasdfasdf'
 
-CSRF_TRUSTED_ORIGINS = ["https://*.django-server-production-d965.up.railway.app", "https://*.chesnowitz.com"]
-ALLOWED_HOSTS = ["http://localhost:8000/","127.0.0.1","django-server-production-d965.up.railway.app", "localhost", "www.chesnowitz.com", "chesnowitz.com"]
+CSRF_TRUSTED_ORIGINS = ["https://*.https://chesnowitz.herokuapp.com/", "https://*.chesnowitz.com"]
+ALLOWED_HOSTS = ["http://localhost:8000/","127.0.0.1","chesnowitz.herokuapp.com/", "localhost", "www.chesnowitz.com", "chesnowitz.com"]
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
