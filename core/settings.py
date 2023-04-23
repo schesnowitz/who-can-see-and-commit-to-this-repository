@@ -13,10 +13,10 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 # False if not in os.environ because of casting above
 DEBUG = env('DEBUG')
-
+# DEBUG = True
 print(DEBUG)
 SECRET_KEY = env('SECRET_KEY')
-
+# SECRET_KEY = 'asdfasdfasdf'
 
 CSRF_TRUSTED_ORIGINS = ["https://*.django-server-production-d965.up.railway.app", "https://*.chesnowitz.com"]
 ALLOWED_HOSTS = ["http://localhost:8000/","127.0.0.1","django-server-production-d965.up.railway.app", "localhost", "www.chesnowitz.com", "chesnowitz.com"]
@@ -106,12 +106,7 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / "static"]
 STATIC_ROOT = BASE_DIR / "staticfiles" 
 CKEDITOR_BASEPATH = "/my_static/ckeditor/ckeditor/"
-STORAGES = {
-    # ...
-    "staticfiles": {
-        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
-    },
-}
+STATICFILES_STORAGE = "whitenoise.storage.CompressedManifestStaticFilesStorage"
 # python manage.py collectstatic
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'

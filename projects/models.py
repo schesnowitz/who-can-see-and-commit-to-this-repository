@@ -8,7 +8,7 @@ class Project(models.Model):
     sub_title = models.CharField(max_length=255, blank=True, null=True)
     sub_title_1 = models.CharField(max_length=255, blank=True, null=True)
     tab_title = models.CharField(max_length=30, blank=True, null=True)
-    image = models.ImageField(default='placeholders/gallery.jpg')
+    image = models.ImageField(default='media/placeholders/gallery.jpg')
     description = RichTextField(blank=True, null=True)
 
     date = models.DateTimeField(auto_now_add=True)
