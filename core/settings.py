@@ -18,8 +18,8 @@ print(DEBUG)
 SECRET_KEY = env('SECRET_KEY')
 
 
-CSRF_TRUSTED_ORIGINS = ["https://*.top-book-production.up.railway.app", "https://*.chesnowitz.com"]
-ALLOWED_HOSTS = ["http://localhost:8000/","127.0.0.1","top-book-production.up.railway.app", "localhost", "www.chesnowitz.com", "chesnowitz.com"]
+CSRF_TRUSTED_ORIGINS = ["https://*.django-server-production-d965.up.railway.app", "https://*.chesnowitz.com"]
+ALLOWED_HOSTS = ["http://localhost:8000/","127.0.0.1","django-server-production-d965.up.railway.app", "localhost", "www.chesnowitz.com", "chesnowitz.com"]
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
@@ -104,8 +104,14 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 STATICFILES_DIRS = [BASE_DIR / "static"]
-STATIC_ROOT = BASE_DIR / "staticfiles" # new
-STATICFILES_STORAGE = 'django.contrib.staticfiles.storage.StaticFilesStorage'
+STATIC_ROOT = BASE_DIR / "staticfiles" 
+CKEDITOR_BASEPATH = "/my_static/ckeditor/ckeditor/"
+STORAGES = {
+    # ...
+    "staticfiles": {
+        "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+    },
+}
 # python manage.py collectstatic
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
@@ -140,7 +146,7 @@ EMAIL_HOST_USER = "apikey"
 EMAIL_HOST_PASSWORD = os.environ.get('SENDGRID_API_KEY')
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-print(EMAIL_HOST_PASSWORD)
+# print(EMAIL_HOST_PASSWORD)
 AUTHENTICATION_BACKENDS = [
     
     # Needed to login by username in Django admin, regardless of `allauth`

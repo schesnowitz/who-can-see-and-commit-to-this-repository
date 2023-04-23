@@ -32,8 +32,8 @@ services:
       SENDGRID_API_KEY: ${SENDGRID_API_KEY}
       DEFAULT_FROM_EMAIL: ${DEFAULT_FROM_EMAIL}
       DEBUG: ${DEBUG}
-  #   depends_on:
-  #     - db
+    depends_on:
+      - db
 
   # pgadmin:
   #   container_name: pgadmin
