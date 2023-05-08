@@ -3,6 +3,8 @@ from django.conf import settings
 from django.urls import reverse
 from ckeditor.fields import RichTextField
 
+
+    
 class Project(models.Model):
     title = models.CharField(max_length=255, blank=True, null=True)
     sub_title = models.CharField(max_length=255, blank=True, null=True)

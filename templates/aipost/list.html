@@ -1,0 +1,73 @@
+{% extends "base_main.html" %}
+{% load static %}
+
+{% block content %}  
+
+
+
+
+<section>
+
+    <div class="container">
+      <div class="row">
+        <div class="col-lg-7">
+            {% for aipost in object_list %}
+          <div class="mb-6"><a href="{% url 'aiposts:post_detail' aipost.id %}"> 
+            <h4 class="font-base text-transform-none fw-medium lh-2 mt-3">
+                <a class="text-black" href="{% url 'aiposts:post_detail' aipost.id %}">
+                    {{ aipost.title }}
+                    
+            </a>
+        </h4>
+            <div class="mb-3">
+                By Fake AI: 
+                <a class="text-700">{{ aipost.reporter }}</a>
+                <span class="mx-2 text-700">|</span>
+                <a class="text-700">{{ aipost.created_on }}</a>   
+                <span class="mx-2 text-700">|</span>
+                <a class="text-700" target="_blank" href="{{ aipost.url }}">Original Story</a>
+
+            </div>
+            <p>{{ aipost.content|truncatechars:350 }}</p>
+            <a class="text-dark fw-semi-bold" href="{% url 'aiposts:post_detail' aipost.id %}">Read more
+                <span class="fas fa-angle-right ms-1 text-900" data-fa-transform="down-2"></span>
+            </a>
+          </div>
+          {% endfor %}
+
+          <div class="col-12 p-0">
+            <div class="d-flex mt-7">
+              <nav aria-label="Page navigation example">
+                <ul class="pagination pagination-rounded">
+                  <li class="page-item disabled ms-0"><a class="page-link" href="#"><span class="fas fa-angle-left"></span></a></li>
+                  <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                  <li class="page-item"><a class="page-link" href="#">2</a></li>
+                  <li class="page-item"><a class="page-link" href="#">3</a></li>
+                  <li class="page-item"><a class="page-link" href="#">4</a></li>
+                  <li class="page-item"><a class="page-link" href="#">5</a></li>
+                  <li class="page-item"><a class="page-link" href="#"><span class="fas fa-angle-right"></span></a></li>
+                </ul>
+              </nav>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg-5 ps-lg-7">
+          <div class="form-group">
+            <input class="form-control" type="text" placeholder="Search..." />
+          </div>
+          <h4 class="mt-4 mb-3 fw-normal">Popular Posts</h4>
+          <div class="d-flex mb-3"><a href="../pages/single-post.html"><img class="rounded" src="../assets/img/projects/13.jpg" width="120" alt="" /></a>
+            <div class="flex-1 ms-3">
+              <h5 class="lh-sm mt-0 text-transform-none fs-0 mb-1 fw-semi-bold font-base"><a class="text-900" href="../pages/single-post.html">How to improve your English speaking in just one second?</a></h5>
+              <p class="text-600 mb-0">6 March 2019</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- end of .container-->
+
+  </section>
+  <!-- <section> close ============================-->
+  <!-- ============================================-->
+{% endblock content %}

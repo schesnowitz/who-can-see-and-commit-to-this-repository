@@ -10,6 +10,8 @@ from .forms import ContactForm
 from django.contrib import messages
 
 
+
+
 def contactView(request):
     if request.method == "GET":
         form = ContactForm()
@@ -28,8 +30,6 @@ def contactView(request):
     return render(request, "projects/contact.html", {"form": form})
 
 
-# def successView(request):
-#     return HttpResponse("Success! Thank you for your message.")
 
 
 class ProjectCreateView(LoginRequiredMixin, CreateView):
@@ -51,7 +51,7 @@ class ProjectListView(ListView):
     template_name = "projects/project_list.html"
     queryset = Project.objects.order_by("-date")[:6]
 
-    # text = {'text': Text.objects.get(pk=1)}
+
     def get_context_data(self, *args, **kwargs):
         context = super(ProjectListView, self).get_context_data(*args, **kwargs)
         context["text"] = Text.objects.get(pk=1)

@@ -6,3 +6,4 @@ staticfiles
 docker-compose-prod.yml
 secret.env
 notes.md
+secret.py

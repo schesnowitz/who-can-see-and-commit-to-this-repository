@@ -11,6 +11,7 @@ urlpatterns = [
     path('accounts/', include('allauth.urls')),
     path("", ProjectListView.as_view(), name="project_list"),
     path("projects/", include("projects.urls")),
+    path("aiposts/", include("aiposts.urls")),
     path("contact/", contactView, name="contact"),
     # path("success/", successView, name="success"),
 ]
