@@ -55,7 +55,7 @@ class PostListView(ListView):
     template_name = "aipost/list.html"
     paginate_by = 10
     extra_context={'text': Text.objects.get(pk=1)}
-
+    ordering = ['-created_on']
     def get_context_data(self, **kwargs):
         context = super(PostListView, self).get_context_data(**kwargs)
         context["side_page"] = Post.objects.all().order_by("?")[:6]
