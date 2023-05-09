@@ -7,6 +7,7 @@ from ckeditor.fields import RichTextField
     
 class Project(models.Model):
     title = models.CharField(max_length=255, blank=True, null=True)
+    image_path = models.CharField(max_length=1000, blank=True, null=True)
     sub_title = models.CharField(max_length=255, blank=True, null=True)
     sub_title_1 = models.CharField(max_length=255, blank=True, null=True)
     tab_title = models.CharField(max_length=30, blank=True, null=True)
