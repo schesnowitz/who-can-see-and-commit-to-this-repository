@@ -13,6 +13,7 @@ from django.contrib import messages
 
 
 def contactView(request):
+    text = Text.objects.get(pk=1)
     if request.method == "GET":
         form = ContactForm()
     else:
@@ -27,7 +28,7 @@ def contactView(request):
                 return HttpResponse("Invalid header found.")
             messages.add_message(request, messages.INFO, "Your message has been sent.")
             return redirect("/")
-    return render(request, "projects/contact.html", {"form": form})
+    return render(request, "projects/contact.html", {"form": form, "text" : text})
 
 
 
@@ -61,7 +62,7 @@ class ProjectListView(ListView):
 class ProjectDetailView(LoginRequiredMixin, DetailView):
     model = Project
     template_name = "projects/project_detail.html"
-
+    extra_context={'text': Text.objects.get(pk=1)}
 
 class ProjectUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     model = Project

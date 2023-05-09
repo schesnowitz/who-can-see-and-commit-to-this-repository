@@ -9,6 +9,10 @@ from django.contrib import messages
 class SearchResultsView(ListView):
     model = Post
     template_name = "aipost/search.html"
+    extra_context={'text': Text.objects.get(pk=1)}
+    # def get_context_data(self, *args, **kwargs):
+    #     context = super(SearchResultsView, self).get_context_data(*args, **kwargs)
+    #     context["text"] = Text.objects.get(pk=1)
 
     def get_queryset(self):
         query = self.request.GET.get("q")
@@ -50,7 +54,7 @@ class PostListView(ListView):
     model = Post
     template_name = "aipost/list.html"
     paginate_by = 10
-    # extra_context={'side_page': Post.objects.all().order_by("?")[:6]}
+    extra_context={'text': Text.objects.get(pk=1)}
 
     def get_context_data(self, **kwargs):
         context = super(PostListView, self).get_context_data(**kwargs)
@@ -62,7 +66,7 @@ class PostListView(ListView):
 class PostDetailView(DetailView):
     model = Post
     template_name = "aipost/detail.html"
-
+    extra_context={'text': Text.objects.get(pk=1)}
     def get_context_data(self, **kwargs):
         context = super(PostDetailView, self).get_context_data(**kwargs)
         context["side_page"] = Post.objects.all().order_by("?")[:6]
