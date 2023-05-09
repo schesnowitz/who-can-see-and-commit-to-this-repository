@@ -1,63 +1,40 @@
 {% extends "base_main.html" %}
 {% load static %}
-
 {% block content %}  
-
 <section>
-
-    <div class="container">
-
-        <h3 class="mt-4 text-transform-none fw-medium">
-            Disclaimer: This article is 100% generated using AI.</h3>
-      <div class="row">
-        <div class="col-lg-7 mb-4 mb-lg-0"><img class="img-fluid rounded" src="../assets/img/blogs/s-3.jpg" alt="" />
-          <h2 class="mt-4 text-transform-none fw-medium">{{ object.title }}</h2>
-          <div class="mb-4"><span class="text-700">By Fake AI: {{ object.reporter }}</span>
-            <span class="mx-2 text-700">|</span>
-            <span class="text-700">{{ object.created_on }}</span>
-            <span class="mx-2 text-700">|</span>
-            <a class="text-700" target="_blank" href="{{ object.url }}">Original Story</a>
-            <span class="mx-2 text-700">|</span>
-            <a class="text-700" target="_blank" href="{% url 'aiposts:post_list' %}">
-                Latest Stories
-            </a>
-        </div>
-          <p>{{ object.content|truncatechars:800 }}</p>
-
-
-    
-        </div>
-        <div class="col-lg-5 ps-lg-7">
-          <div class="form-group">
-            <input class="form-control" type="text" placeholder="Search..." />
-          </div>
-          <h4 class="mt-4 mb-3 fw-normal">Popular Posts</h4>
-          <div class="d-flex mb-3">
-            <a href="../pages/single-post.html">
-                <img class="rounded" src="../assets/img/projects/13.jpg" width="120" alt="" />
-            </a>
-            <div class="flex-1 ms-3">
-              <h5 class="lh-sm mt-0 text-transform-none fs-0 mb-1 fw-semi-bold font-base">
-                <a class="text-900" href="../pages/single-post.html">
-                    How to improve your English speaking in just one second?
-                </a>
-            </h5>
-              <p class="text-600 mb-0">6 March 2019</p>
-            </div>
-          </div>
- 
-
-
-
-          
+  <div class="container">
+  <h3 class="mt-4 text-transform-none fw-medium">
+    {{ page_texts.page_text_19 }}
+  </h3>
+  <div class="row">
+    <div class="col-lg-7 mb-4 mb-lg-0">
+      <img class="img-fluid rounded" src="../assets/img/blogs/s-3.jpg" alt="" />
+      <h2 class="mt-4 text-transform-none fw-medium">{{ object.title }}</h2>
+      <div class="mb-4"><span class="text-700">{{ page_texts.page_text_19 }}{{ object.reporter }}</span>
+        <span class="mx-2 text-700">|</span>
+        <span class="text-700">{{ object.created_on }}</span>
+        <span class="mx-2 text-700">|</span>
+        <a class="text-700" target="_blank" href="{{ object.url }}">{{ page_texts.page_text_20 }}</a>
+        <span class="mx-2 text-700">|</span>
+        <a class="text-700" href="{% url 'aiposts:post_list' %}">
+        Latest Stories
+        </a>
+      </div>
+      <p>{{ object.content|truncatechars:800 }}</p>
+    </div>
+    <div class="col-lg-5 ps-lg-7">
+      <h4 class="mt-4 mb-3 fw-normal">{{ page_texts.page_text_18 }}</h4>
+      <div class="d-flex mb-3">
+        <div class="flex-1 ms-3">
+          <span class="mx-2 text-700">
+          {{ page_texts.text_field_1|safe }}
+          </span>
         </div>
       </div>
-      <div class="row">
-
-
     </div>
-    <!-- end of .container-->
-
-  </section>
-
-  {% endblock content %}
+  </div>
+  <div class="row">
+  </div>
+  <!-- end of .container-->
+</section>
+{% endblock content %}

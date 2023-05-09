@@ -85,6 +85,10 @@ class Text(models.Model):
     github_url = models.URLField(blank=True, null=True)
     youtube_url = models.URLField(blank=True, null=True)
     linkedin_url = models.URLField(blank=True, null=True)
+    text_field_1 = RichTextField(blank=True, null=True)
+    text_field_2 = RichTextField(blank=True, null=True)
+    text_field_3 = RichTextField(blank=True, null=True)
+    text_field_4 = RichTextField(blank=True, null=True)
     def __str__(self):
         return str(self.id)
 

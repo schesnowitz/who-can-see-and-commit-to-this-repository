@@ -21,14 +21,11 @@
         <form method="post" data-zanim-xs='{"from":{"opacity":1,"x":30},"to":{"opacity":1,"x":0},"duration":1.5,"delay":0.1}'>
         <form method="post">
           {% csrf_token %}
-          <div class="form-group">
-            <label for="exampleInput">Email address</label>
-            {{ form.contact_em }}
-          </div>
+
           <br />
           <div class="form-group">
-            <label for="message">Subject</label>
-            {{ form.subject }}    
+            <label for="message">Email</label>
+            {{ form.email }}    
             <br />  
           </div>
           <div class="form-group">
