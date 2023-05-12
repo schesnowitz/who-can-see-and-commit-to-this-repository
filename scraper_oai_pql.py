@@ -27,7 +27,7 @@ llm = OpenAI(temperature=0.9, verbose=True)
 
 
 loader = WebBaseLoader(
-    "https://www.bbc.com/news/world-us-canada-65521656"
+    "https://apnews.com/article/immigration-border-title-42-mexico-asylum-8c239766c2cb6e257c0220413b8e9cf9"
 )
 data = loader.load()
 
