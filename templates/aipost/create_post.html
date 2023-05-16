@@ -1,0 +1,98 @@
+{% extends "base_main.html" %}
+{% load static %}
+{% block content %}  
+
+
+
+
+
+
+
+
+<section>
+    <div class="container">
+    <h3 class="mt-4 text-transform-none fw-medium">
+  
+    </h3>
+    <div class="row">
+      <div class="col-lg-7 mb-4 mb-lg-0">
+        <img class="img-fluid rounded" src="../assets/img/blogs/s-3.jpg" alt="" />
+        {% if not story_content %} 
+
+        <div class="container">
+        <form method=POST action="{% url 'aiposts:create_post' %}" id="formOne">
+            <input type="hidden" name="form_type" value="formOne">
+            <div class="form-group">
+                 {% csrf_token %}   
+                <input type="text" name="url" class="form-control" id="url" placeholder="news url">
+                <small id="urlHelp" class="form-text text-muted">Enter News URL</small>
+              </div>
+        
+              <button type="submit" class="btn btn-primary">Get News</button>
+        </form>
+        </div>
+        {% endif %} 
+        {% if story_content %} 
+
+        <div class="container">
+        <form method=POST action="{% url 'aiposts:create_post' %}"id="formTwo">
+            <input type="hidden" name="form_type" value="formTwo">
+            {% csrf_token %} 
+            
+            <div class="form-group">
+                <input type="hidden" value="{{url}}" name="url" class="form-control" id="url" placeholder="news url">
+        
+            </div>
+            <div class="form-group">
+                <input type="text" value="{{story_reporter_name}}" name="story_reporter_name" class="form-control" id="story_reporter_name" placeholder="reporter name">
+          
+            </div>
+            <div class="form-group">
+                <input type="text" value="{{story_title}}" name="story_title" class="form-control" id="story_title" placeholder="story title">
+          
+            </div>
+              <div class="form-group">
+                <textarea class="form-control" 
+                name="story_content" id="story_content" rows="3">{{story_content}}</textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+        </form>
+        </div> 
+        {% endif %} 
+        </div>
+        <p></p>
+      </div>
+      <div class="col-lg-5 ps-lg-7">
+        <h4 class="mt-4 mb-3 fw-normal"></h4>
+        <div class="d-flex mb-3">
+          <div class="flex-1 ms-3">
+            <span class="mx-2 text-700">
+          
+            </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="row">
+    </div>
+    <!-- end of .container-->
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% endblock content %} 

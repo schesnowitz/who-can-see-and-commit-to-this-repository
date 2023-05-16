@@ -9,3 +9,5 @@ class Post(models.Model):
     created_on = models.DateTimeField(auto_now_add=True, blank=True, null=True)
     updated_on = models.DateTimeField(auto_now=True, blank=True, null=True)
     reporter = models.CharField(max_length=1000, blank=True, null=True)
+    def __str__(self):
+        return self.title

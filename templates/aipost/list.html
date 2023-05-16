@@ -22,7 +22,7 @@
             <span class="mx-2 text-700">|</span>
             <a class="text-700" target="_blank" href="{{ aipost.url }}">Original Story</a>
           </div>
-          <p>{{ aipost.content|truncatechars:350 }}</p>
+          <p>{{ aipost.content|truncatechars:350|safe }}</p>
           <a class="text-dark fw-semi-bold" href="{% url 'aiposts:post_detail' aipost.id %}">Read more
           <span class="fas fa-angle-right ms-1 text-900" data-fa-transform="down-2"></span>
           </a>

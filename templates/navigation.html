@@ -17,11 +17,17 @@
           <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" href="{% url 'contact' %}" data-bs-toggle="dropdown-on-hover" aria-haspopup="true" aria-expanded="false">Contact</a>
           <div class="dropdown-menu dropdown-menu-end py-0 overflow-hidden" aria-labelledby="navbarDropdownMenuLink1"></div>
         </li>
+        {% if user.is_superuser %}
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" href="{% url 'edit' %}" data-bs-toggle="dropdown-on-hover" aria-haspopup="true" aria-expanded="false">Edit Profile</a>
+            <div class="dropdown-menu dropdown-menu-end py-0 overflow-hidden" aria-labelledby="navbarDropdownMenuLink1"></div>
+          </li>
         {% if user.is_authenticated %}
         <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" href="{% url 'edit' %}" data-bs-toggle="dropdown-on-hover" aria-haspopup="true" aria-expanded="false">Edit Profile</a>
+          <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" href="{% url 'aiposts:create_post' %}" data-bs-toggle="dropdown-on-hover" aria-haspopup="true" aria-expanded="false">Add News</a>
           <div class="dropdown-menu dropdown-menu-end py-0 overflow-hidden" aria-labelledby="navbarDropdownMenuLink1"></div>
         </li>
+        {% endif %}
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink1" href="{% url 'account_logout' %}" data-bs-toggle="dropdown-on-hover" aria-haspopup="true" aria-expanded="false">Log Out</a>
           <div class="dropdown-menu dropdown-menu-end py-0 overflow-hidden" aria-labelledby="navbarDropdownMenuLink1"></div>
