@@ -142,7 +142,7 @@ ACCOUNT_UNIQUE_EMAIL = True
 # mail settings
 EMAIL_BACKEND = "django.core.mail.backends.smtp.EmailBackend"
 # EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
-
+OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
 SENDGRID_API_KEY = os.environ.get('SENDGRID_API_KEY')
 
 DEFAULT_FROM_EMAIL = os.environ.get('DEFAULT_FROM_EMAIL')

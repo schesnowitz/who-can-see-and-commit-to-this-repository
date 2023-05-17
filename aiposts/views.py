@@ -15,9 +15,13 @@ from langchain.document_loaders import WebBaseLoader
 from langchain.vectorstores import FAISS
 from langchain.prompts import PromptTemplate
 from langchain.chains import LLMChain
+from langchain.callbacks import get_openai_callback
 from datetime import datetime
 
 dt = datetime.now()
+
+
+
 
 
 def create_post_view(request):
@@ -30,9 +34,7 @@ def create_post_view(request):
             url = request.POST["url"]
             # print(url)
             context = {"url": url}
-            os.environ[
-                "OPENAI_API_KEY"
-            ] = ""
+
             llm = OpenAI(temperature=0.9, verbose=True)
 
             loader = WebBaseLoader(web_path=url)
@@ -68,8 +70,13 @@ def create_post_view(request):
 
             query = "write a title for the story"
             docs = db.similarity_search(query, k=3)
+
             story_reporter_name = chain.run({"name": docs, "query": query})
             print(story_reporter_name)
+            # num_tokens = llm.get_num_tokens(prompt_template)
+            # print (f"Our prompt has {num_tokens} tokens")
+            
+            
 
             """
             -------------------------------------------------------------
@@ -92,14 +99,15 @@ def create_post_view(request):
             docs = db.similarity_search(query, k=3)
             story_title = chain.run({"title": docs, "query": query})
             print(story_title)
-
+            # callback_token_getter()
             """
             -------------------------------------------------------------
             Story Content
             -------------------------------------------------------------
             """
 
-            prompt_template = """Use the context below to write a 700 word blog post about the context below:
+            prompt_template = """Use the context below to write a 700 word blog post 
+            about the context below make sure the story ends with a complete sentence:
                 Context: {context}
                 Topic: {query}
                 Blog post:"""
@@ -114,6 +122,7 @@ def create_post_view(request):
             docs = db.similarity_search(query, k=3)
             story_content = chain.run({"context": docs, "query": query})
             print(story_content)
+            # callback_token_getter()
             text = Text.objects.get(pk=1)
             context = {
                 "url": url,
