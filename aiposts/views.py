@@ -25,10 +25,6 @@ dt = datetime.now()
 
 
 def create_post_view(request):
-
-
-    
-
     if request.method == "POST":
         if request.POST.get("form_type") == "formOne":
             url = request.POST["url"]
